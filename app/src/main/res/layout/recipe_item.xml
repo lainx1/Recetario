@@ -1,0 +1,56 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="RVM"
+            type="com.example.zoma.recetario.RecetaViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/recipeCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{RVM::openRecipeView}"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardPreventCornerOverlap="false">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/art"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:art="@{RVM.art}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/art"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:layout_centerVertical="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:text="@{RVM.title}" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@{RVM.preparationTime}"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@{RVM.portions}"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>
